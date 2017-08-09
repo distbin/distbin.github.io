@@ -165,6 +165,18 @@ Pricing
             height: 40px;
             color: #57bb46;
             margin-top: 16px;
+            transition: all 0.3s linear;
+        }
+
+        .nav-small .beta {
+            margin-left: 160px;
+            transition: all 0.3s linear;
+        }
+
+        @media (min-width: 768px){
+          .beta {
+              transition: none;
+          }
         }
 
         @media (max-width: 991px) {
@@ -199,7 +211,7 @@ Pricing
                         <img src="assets/img/layout/company-logo-light.png" class="logo-light" alt="#">
                         <img src="assets/img/layout/company-logo-dark.png" class="logo-dark" alt="#">
                     </a>
-                    <div class="beta"><i>beta</i></div>
+                    <div class="beta"><strong>beta</strong></div>
                 </div>
             </div>
 
