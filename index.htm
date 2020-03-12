@@ -68,10 +68,8 @@
             border: none;
         }
         /* --------------------------------
-
-Pricing
-
--------------------------------- */
+        Pricing
+        -------------------------------- */
 
         .pricing.section {
             padding-bottom: 4em;
@@ -480,7 +478,7 @@ Pricing
                             <a href="#pricing">Pricing</a>
                         </li>
                         <li>
-                            <a href="#getstart" class="nav-link btn btn-reverse" data-toggle="modal" data-target=".login-modal">Get Started</a>
+                            <a href="#" class="nav-link btn btn-reverse get-started" data-toggle="modal" >Get Started</a>
                         </li>
                     </ul>
                 </div>
@@ -502,7 +500,7 @@ Pricing
                                 <strong>Cloud Storage</strong>
                             </h1>
                         <p class="lead">Encrypted, distributed, and reliable</p>
-                        <a href="#getstart" class="btn btn-lg btn-primary btn-scroll" data-toggle="modal" data-target=".login-modal">Try Free Space</a>
+                        <a id="tryfreespace" href="#" class="btn btn-lg btn-primary btn-scroll get-started" data-toggle="modal" >Try Free Space</a>
                         <p>
                             <strong>1GB free space for 30 days.</strong>
                         </p>
@@ -634,7 +632,7 @@ Pricing
                 </div>
                 <div class="col-md-12 text-center">
                     <p class="lead">Start with trial. Upgrade anytime.</p>
-                    <a href="#getstart" class="btn btn-lg btn-primary btn-scroll" data-toggle="modal" data-target=".login-modal">Try Free Space</a>
+                    <a href="#" class="btn btn-lg btn-primary btn-scroll get-started" data-toggle="modal" >Try Free Space</a>
                     <p>
                         <strong>1GB free space for 30 days.</strong>
                     </p>
@@ -682,8 +680,8 @@ Pricing
             <div class="row">
                 <div class="col-md-8 col-md-push-2 content-center">
                     <h2>Ready to transform to a new cloud storage ?</h2>
-                    <a href="#getstart" class="btn btn-lg btn-primary btn-scroll" data-toggle="modal" data-target=".login-modal">Get Started</a>
-                    <a href="#getstart" class="btn btn-lg btn-secondary btn-scroll">Contact</a>
+                    <a href="#" class="btn btn-lg btn-primary btn-scroll get-started" data-toggle="modal" >Get Started</a>
+                    <a href="#" class="btn btn-lg btn-secondary btn-scroll">Contact</a>
                 </div>
             </div>
         </div>
@@ -716,7 +714,7 @@ Pricing
             </span>
     </footer>
     <!-- End Footer -->
-    <div class="modal fade login-modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div id="login-overlay" class="modal-dialog" role="document">
             <div class="form">
                 <ul class="tab-group">
@@ -761,7 +759,6 @@ Pricing
                         </form>
                     </div>
                     <div id="login">
-                        <h1>Welcome Back!</h1>
                         <form action="/" method="post">
                             <div class="field-wrap">
                                 <label>
@@ -780,16 +777,6 @@ Pricing
                             </p>
                             <button class="button button-block">Log In</button>
                         </form>
-
-                        <hr />
-                        <div class="social-login">
-                            <h3>...or login with:</h3>
-                            <div class="social-login-buttons">
-                                <a class="btn btn-link-1 btn-link-1-facebook" href="#">
-                                    <i class="fa fa-facebook"></i> Facebook
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -888,8 +875,31 @@ Pricing
             $(target).fadeIn(600);
 
         });
+
+
         //# sourceURL=pen.js
     </script>
+    <!-- <script src="https://cdn.auth0.com/js/auth0/9.11/auth0.min.js"></script> -->
+
+    <!-- Latest minor release -->
+    <script src="https://cdn.auth0.com/js/auth0/9.11/auth0.min.js"></script>
+    <script type="text/javascript">
+      // Initialize app
+      var webAuth = new auth0.WebAuth({
+        domain:       'd-bin.auth0.com',
+        clientID:     '7DMruXHIPeZCVyXv3gXQoj2BLjM0aNwC'
+      });
+
+      $('.get-started').on('click', function(e) {
+        // Trigger login with github
+        webAuth.authorize({
+          connection: null,
+          responseType: 'code',
+          redirectUri: 'https://distbin.github.io'
+        });
+      });
+    </script>
+
 </body>
 
 </html>
